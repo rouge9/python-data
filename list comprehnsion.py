@@ -19,7 +19,37 @@
 # print(result)
 
 # dictionary comprehension
+#
+# sentence = "what is the airspeed velocity of an unladen swallow?"
+# new_dict = {word: len(word) for word in sentence.split() }
+# print(new_dict)
 
-sentence = "what is the airspeed velocity of an unladen swallow?"
-new_dict = {word: len(word) for word in sentence.split() }
-print(new_dict)
+# infinite argument
+def add(*args):
+    total = 0
+    for n in args:
+        total += n
+    print(total)
+
+add(3,6,7,3,6)
+
+
+# use of **kwargs
+def calculate(n, **kwargs):
+    n += kwargs["add"]
+    n *= kwargs["multi"]
+    return n
+
+print(calculate(2, add= 25, multi= 30))
+
+
+class Car:
+    def __init__(self, **kwargs):
+        self.model = kwargs.get("model")
+        self.make = kwargs.get("make")
+
+
+
+my_car = Car(make="toyota")
+print(my_car.make)
+
